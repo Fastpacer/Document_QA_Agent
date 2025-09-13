@@ -1,0 +1,26 @@
+# Core dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+
+# Groq LLM
+groq==0.3.0
+
+# Vector database
+chromadb==0.4.15
+
+# PDF processing
+pymupdf==1.23.8
+
+# Embeddings - use specific compatible versions
+sentence-transformers==2.2.2
+transformers==4.35.2
+torch==2.1.1
+numpy==1.24.4
+huggingface-hub==0.16.4  # Specific version that works with sentence-transformers
+
+# Arxiv integration
+arxiv==1.4.2
+
+# Environment management
+python-dotenv==1.0.0
