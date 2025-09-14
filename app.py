@@ -24,9 +24,16 @@ app.add_middleware(
 # Initialize components and ensure directories exist
 Config.ensure_directories_exist()
 processor = DocumentProcessor()
-vector_store = VectorStore(persist_directory=Config.VECTOR_DB_DIR)
+
+# IMPORTANT: Initialize vector store with the model from config
+vector_store = VectorStore(
+    persist_directory=Config.VECTOR_DB_DIR, 
+    embedding_model=Config.EMBEDDING_MODEL  # This uses "gemma" from your config
+)
+
 query_processor = QueryProcessor()
 arxiv_client = ArxivIntegration()
+
 
 @app.post("/upload")
 async def upload_document(file: UploadFile = File(...)):
