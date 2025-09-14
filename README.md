@@ -1,157 +1,95 @@
 # Document Q&A AI Agent
+A powerful AI-powered document querying system for PDF analysis and research paper discovery.
 
- A powerful AI-powered document querying system that allows you to upload PDF documents, ask questions about them, and search for relevant research papers from Arxiv.
 
-## 🚨 Important Constraints & Limitations
-This version has several important constraints due to its development stage and resource limitations:
+⚠️ Important Constraints
+This is a localhost-only MVP with significant limitations:
 
-1. Local Development Only
-This application is designed for localhost environments only and is not configured for production deployment. It requires local file system access and runs on localhost.
+Local Development Only: Not configured for production deployment
 
-2. Groq API Free Tier Limitations
-The application uses Groq's free tier API, which has significant constraints:
+Free Tier Limits: Uses Groq's free API with strict token limits (~8000 TPM)
 
-Token Limits: Free tier has strict token limits (∼8000 tokens per minute)
+Large File Issues: Research papers >30 pages may fail processing
 
-Large Document Handling: Research papers and large documents may exceed token limits
+Hardware Demands: Requires 8GB+ RAM and 2GB+ storage
 
-Rate Limiting: API calls are rate-limited, which may cause timeouts with large files
+✨ Features
+📄 PDF document processing and text extraction
 
-Model Restrictions: Limited to specific models available on the free tier
+❓ AI-powered question answering
 
-3. Hardware Requirements
-Requires sufficient RAM for embedding models and document processing
+📝 Document summarization
 
-PDF processing can be memory-intensive for large documents
+🔍 Arxiv research paper search
 
-Vector database storage requires local disk space
+🗂️ Document management interface
 
-4. Document Size Limitations
-Very large research papers (>50 pages) may not process completely
-
-Complex mathematical content may not be fully captured
-
-Token limits may truncate responses for complex queries
-
-✨ Features (Within Constraints)
-Document Upload & Processing: Upload and process PDF documents (within size limits)
-
-Basic Querying: Ask questions about uploaded documents (simpler queries work best)
-
-Document Summarization: Generate summaries of specific documents
-
-Research Paper Search: Find relevant academic papers from Arxiv (basic searches)
-
-Document Management: View and manage processed documents
-
-🛠️ Installation & Setup
-Prerequisites
-Python 3.8+
-
-Groq API account (free tier)
-
-Minimum 8GB RAM recommended
-
-2GB+ free disk space for document storage
-
-1. Clone the Repository
+🚀 Quick Start
+Installation
 bash
 git clone https://github.com/yourusername/document-qa-agent.git
 cd document-qa-agent
-2. Create Virtual Environment
-bash
-python -m venv env
-# On Windows:
-env\Scripts\activate
-# On Mac/Linux:
-source env/bin/activate
-3. Install Dependencies
-bash
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-4. Set Up Environment Variables
+Configuration
+Get free API key from console.groq.com
+
+Create .env file:
+
+env
+GROQ_API_KEY=your_actual_api_key_here
+Running
 bash
-# Copy the example environment file
-cp .env.example .env
-# Edit .env and add your Groq API key
-echo "GROQ_API_KEY=your_actual_groq_api_key_here" > .env
-5. Get Your Groq API Key
-Sign up at https://console.groq.com/
-
-Create a new API key (free tier)
-
-Add it to your .env file
-
-🚀 Usage
-Starting the Backend Server
-bash
+# Terminal 1 - Backend API
 python app.py
-The API server will start at http://localhost:8000
 
-Starting the Streamlit Frontend (in a new terminal)
-bash
+# Terminal 2 - Frontend
 streamlit run streamlit_app.py
-The web interface will open at http://localhost:8501
+Access at:
 
-Recommended Usage Pattern
-Start with smaller documents (under 30 pages)
+API Docs: http://localhost:8000/docs
 
-Use simple, focused queries rather than complex multi-part questions
+Web UI: http://localhost:8501
 
-Process documents one at a time to avoid overwhelming the API
+📖 Usage
+Upload PDFs through the web interface
 
-Monitor console output for token limit warnings
+Ask questions about your documents
 
-📊 Performance Expectations
-What Works Well
-Small to medium-sized documents (5-25 pages)
+Get summaries of specific files
 
-Direct factual questions
+Search Arxiv for related research papers
 
-Simple summary requests
+Recommended Usage
+Stick to documents under 30 pages
 
-Basic research paper searches
+Use specific, focused queries
 
-Known Limitations
-Large research papers: May hit token limits or time out
+Process files one at a time
 
-Complex mathematical queries: May not capture all nuances
+Monitor console for token limit warnings
 
-Multi-part questions: May receive incomplete responses
+🐛 Troubleshooting
+Common Issues
+Rate Limits: Wait between requests or use smaller documents
 
-High-volume processing: Free tier rate limits will be exceeded
+Memory Issues: Close other applications or add more RAM
 
-🏗️ Architecture
-text
-Frontend (Streamlit) → Backend (FastAPI) → Vector Database (ChromaDB)
-                             |
-                             → Groq LLM API (Free Tier)
-                             → Arxiv API
-🔮 Future Enhancements (When Constraints Are Removed)
-Cloud deployment with scalable infrastructure
+Processing Failures: Try smaller files or split large documents
 
-Paid API tier for higher limits and better performance
+🔮 Future Enhancements
+Cloud deployment capabilities
 
-Advanced document processing with better large-file support
+Paid API tier integration
 
-User authentication and authorization
+Advanced document processing
 
-Support for more document types
+User authentication system
 
-Real-time collaboration features
-
-🤝 Contributing
-This is currently a personal project with significant constraints. Contributions that address the current limitations are welcome, but please be aware of the free-tier API constraints.
+Enhanced large file support
 
 📝 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT License - see LICENSE file for details.
 
-📄 Document Recommendations
-For best results, use:
-
-Research papers under 30 pages
-
-Documents with clear text (not scanned images)
-
-PDFs with proper text layers (not image-only PDFs)
-
-Well-structured documents with sections and headings
+Note: This MVP works best with smaller documents and simple queries due to free-tier API constraints. Performance with complex research papers will be limited until upgraded.
