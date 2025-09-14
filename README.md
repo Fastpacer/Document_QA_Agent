@@ -145,34 +145,6 @@ This is currently a personal project with significant constraints. Contributions
 📝 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-⚠️ Troubleshooting Common Issues
-Token Limit Errors
-bash
-# Error: Request too large for model
-Solution: Use smaller documents or break queries into smaller parts
-Rate Limit Errors
-bash
-# Error: Rate limit exceeded
-Solution: Wait before making additional requests or process fewer documents
-Large Document Failures
-bash
-# Error: Document processing failed
-Solution: Use smaller documents or split large documents into sections
-Memory Issues
-bash
-# Error: Out of memory
-Solution: Close other applications or use a machine with more RAM
-🆘 Support
-For issues related to this version, please check:
-
-Groq API key is properly set in .env
-
-Backend server is running on port 8000
-
-You're not exceeding free tier limits
-
-Documents are within recommended size limits
-
 📄 Document Recommendations
 For best results, use:
 
