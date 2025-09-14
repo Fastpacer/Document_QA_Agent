@@ -9,7 +9,11 @@ class Config:
     VECTOR_DB_DIR = "C:\\Users\\Hp\\Desktop\\Document_QA_Agent\\data\\vector_db"
     CHUNK_SIZE = 1000
     CHUNK_OVERLAP = 200
-    EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+    EMBEDDING_MODEL = "mpnet"
+    # Technical content handling
+    TECHNICAL_CHUNK_SIZE = 1200  # Larger chunks for technical content
+    MAX_TECHNICAL_TOKENS = 1200  # More tokens for technical responses
+    ENABLE_MATH_HIGHLIGHTING = True
 
     @staticmethod
     def ensure_directories_exist():
