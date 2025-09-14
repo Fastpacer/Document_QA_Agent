@@ -89,7 +89,5 @@ User authentication system
 
 Enhanced large file support
 
-📝 License
-MIT License - see LICENSE file for details.
 
 Note: This MVP works best with smaller documents and simple queries due to free-tier API constraints. Performance with complex research papers will be limited until upgraded.
