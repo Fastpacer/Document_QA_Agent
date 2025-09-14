@@ -1,6 +1,6 @@
 # Document Q&A AI Agent
 
-A powerful AI-powered document querying system that allows you to upload PDF documents, ask questions about them, and search for relevant research papers from Arxiv.
+ ## A powerful AI-powered document querying system that allows you to upload PDF documents, ask questions about them, and search for relevant research papers from Arxiv.
 
 🚨 Important Constraints & Limitations
 This version has several important constraints due to its development stage and resource limitations:
